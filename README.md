@@ -31,4 +31,4 @@ The research simulates a 4-year market progression (2022-2025) to analyze how in
 ---
 *This repository is a work in progress as part of my academic portfolio at Ben-Gurion University.*
 
-##Raw Data Chocolate_Sales.csv 
+##Raw Data You can view the raw dataset [here](./Chocolate_Sales.csv).
