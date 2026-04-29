@@ -1,7 +1,7 @@
 # liorgr-cell-ChocolateSales
 Multi-year economic analysis of global chocolate sales (Kaggle) using SQL, R, and Excel. Focusing on price elasticity and TR optimization.
 # Global Confectionery Market Analysis: Economic Modeling & Data Engineering
-# Consumer Behavior Analysis: WTP & Price Elasticity Modeling
+ Consumer Behavior Analysis: WTP & Price Elasticity Modeling
 
 ## 👤 About the Author
 I am a **First-year Economics student at Ben-Gurion University of the Negev**. This project bridges the gap between theoretical microeconomic concepts and data-driven market analysis. I specialize in using technical tools to quantify consumer behavior, focusing on demand functions and market characterization.
