@@ -66,3 +66,19 @@ SET
     
     -- Formatting the date to a standard SQL DATE structure
     Formatted_Date = CAST(Date AS DATE);
+
+### Step 3: Product Isolation & Feature Selection (Representative Example)
+To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points. 
+
+Instead of pulling all available columns (`SELECT *`), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for **Drinking Coco**. This exact logic was replicated for the other four categories (85% Dark Bites, 99% Dark & Pure, 70% Dark Bites, and Peanut Butter Cubes)
+```sql
+-- Isolating specific columns for 'Drinking Coco' into a dedicated working table
+CREATE TABLE USA_Drinking_Coco AS
+SELECT 
+    Formatted_Date,
+    Clean_Price,
+    Country,
+    "Boxes Shipped"
+FROM USA_Chocolate_Sales
+WHERE Product_Name = 'Drinking Coco';
+WHERE Product_Name = 'Drinking Coco';
