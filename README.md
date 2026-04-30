@@ -165,10 +165,10 @@ library(ggplot2)
 library(dplyr)
 
 # Importing the final consolidated CSV file
-chocolate_USA <- read.csv("Final_Chocolate_Master_USA.csv")
+chocolate_USA_DB <- read.csv("Final_Chocolate_Master_USA.csv")
 
 # Creating the Demand Curve Visualization
-ggplot(chocolate_USA, aes(x = Boxes.Shipped, y = Clean_Price, color = Product)) +
+ggplot(chocolate_USA_DB, aes(x = Boxes.Shipped, y = Clean_Price, color = Product)) +
   # Adding data points (observations) with transparency
   geom_point(alpha = 0.5, size = 2.5) +
   
