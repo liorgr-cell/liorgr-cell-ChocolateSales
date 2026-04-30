@@ -51,7 +51,7 @@ FROM Global_Chocolate_Sales
 WHERE Country = 'USA'; 
 ```
 
-###Step 2: Data Standardization & Feature Engineering
+### Step 2: Data Standardization & Feature Engineering
 Raw datasets often contain formatting that prevents immediate mathematical operations. Instead of overwriting the original raw data, I followed data integrity best practices by creating new, clean columns.
 
 The original price column contained text characters (the $ sign), preventing numeric calculations. I used SQL string manipulation to strip this symbol and convert it to a precise numeric format.
@@ -70,7 +70,7 @@ SET
     -- Formatting the date to a standard SQL DATE structure
     Formatted_Date = CAST(Date AS DATE);
 ```
-###Step 3: Product Isolation & Feature Selection (Representative Example)
+### Step 3: Product Isolation & Feature Selection (Representative Example)
 To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
 
 Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories.
