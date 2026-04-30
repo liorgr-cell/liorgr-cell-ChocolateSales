@@ -139,7 +139,7 @@ After cleaning, simulating, and expanding the data across 5 separate working tab
 To ensure the statistical software could distinguish between the different items, I used a standard data engineering technique: **Dynamic Feature Injection**. During the `UNION ALL` operation, I hardcoded a new `Product` column into each `SELECT` statement, tagging every row with its respective category.
 ```sql
 -- Consolidating all 5 tables into one final analytical dataset
-CREATE TABLE Final_Chocolate_Master AS
+CREATE TABLE Final_Chocolate_Master_USA AS
 SELECT *, 'Drinking Coco' AS Product FROM USA_Drinking_Coco
 UNION ALL
 SELECT *, '85% Dark Bites' AS Product FROM Chocolate_85_Percent_USA
