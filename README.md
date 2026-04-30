@@ -21,6 +21,7 @@ While the initial dataset contained a massive variety of chocolates across multi
 ## 🛠️ Data Processing & Methodology (SQL)
 1. **Extraction & Cleaning:** I extracted the data from the main database using SQL. A critical step was identifying extreme outliers in unit prices. I refined and cleaned the data to significantly reduce price variance, ensuring a reliable foundation for elasticity modeling.
 2. **Master Table Aggregation:** After cleaning and normalizing the individual product data, I merged all the processed datasets into a single, structured **Master Table** using `UNION ALL`. This streamlined the workflow for the visualization phase.
+   [View the full SQL script here 💻](USA_Market.sql)
 
 ## 📈 Visualization (R & ggplot2)
 Using R, I transitioned from the SQL Master Table to a clear visual representation of the demand curves. The graph is specifically designed to emphasize the differences in price elasticities between the products, visually distinguishing steep (inelastic) curves from shallow (elastic) ones.
