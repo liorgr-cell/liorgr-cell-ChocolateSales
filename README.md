@@ -77,7 +77,7 @@ SET
 ### Step 3: Product Isolation & Feature Selection (Representative Example)
 To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
 
-Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories ( 70% Dark Bites, 85% Dark Bites, 99% Dark & Pure, and Peanut Butter Cubes).
+Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories ( 70% Dark Bites, 85% Dark Bars, 99% Dark & Pure, and Peanut Butter Cubes).
 ```sql
 -- Isolating specific columns for 'Drinking Coco' into a dedicated working table
 CREATE TABLE USA_Drinking_Coco AS
