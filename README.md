@@ -66,7 +66,7 @@ ADD Formatted_Date DATE;
 UPDATE USA_Chocolate_Sales
 SET 
     -- Removing the '$' symbol and casting as a decimal
-    Clean_Price = CAST(REPLACE(Price, '$', '') AS REAL),
+   Clean_Price = REPLACE(TRIM(Price), '$', '') ;
     
     -- Formatting the date to a standard SQL DATE structure
     "Formatted_Date" = 
