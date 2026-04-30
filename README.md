@@ -121,13 +121,13 @@ I categorized the products to simulate realistic price and demand fluctuations o
 Below is the SQL logic used to "bootstrap" the 2023 data. I used string replacement for dates, applied a price multiplier, and adjusted volume using a `CAST` to integers to ensure realistic shipping units.
 ```sql
 -- Iteratively generating 2023 data based on the 2022 foundation
-INSERT INTO Drinking_Coco_USA (Formatted_Date, Clean_Price, Country, "Boxes Shipped")
+INSERT INTO USA_Drinking_Coco (Formatted_Date, Clean_Price, Country, "Boxes Shipped")
 SELECT
     REPLACE(Formatted_Date, '2022', '2023'), -- Shifting the time horizon
     Clean_Price * 1.05,                      -- Applying price growth coefficient
     Country,
     CAST("Boxes Shipped" * 0.97 AS INTEGER)  -- Adjusting volume based on elasticity
-FROM Drinking_Coco_USA
+FROM USA_Drinking_Coco
 WHERE Formatted_Date LIKE '%2022%';
 ```
 ---
@@ -140,7 +140,7 @@ To ensure the statistical software could distinguish between the different items
 ```sql
 -- Consolidating all 5 tables into one final analytical dataset
 CREATE TABLE Final_Chocolate_Master AS
-SELECT *, 'Drinking Coco' AS Product FROM Drinking_Coco_USA
+SELECT *, 'Drinking Coco' AS Product FROM USA_Drinking_Coco
 UNION ALL
 SELECT *, '85% Dark Bites' AS Product FROM Chocolate_85_Percent_USA
 UNION ALL
