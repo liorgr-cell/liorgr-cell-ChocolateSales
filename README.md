@@ -103,4 +103,32 @@ DELETE FROM USA_Drinking_Coco
 WHERE Clean_Price > 45.00 
    OR Clean_Price < 2.00;
 ```
+### Step 5: Longitudinal Data Expansion (Iterative Simulation)
+Since the original dataset only provided a baseline for 2022, I expanded the data to cover a 4-year period (2022–2025). This was an **iterative process**, where each year’s data served as the foundation for the next, allowing for a logical progression of market trends.
 
+I used an **INSERT INTO ... SELECT** approach to sequentially migrate and modify the data. The snippet below illustrates the **initial base transformation** used to generate the 2023 records from the 2022 baseline. This same logic was then applied progressively to create 2024 and 2025.
+
+#### 📊 Economic Classification Logic:
+I categorized the products to simulate realistic price and demand fluctuations over the four-year span:
+
+| Product Type | Example | Economic Assumption | Simulation Logic |
+| :--- | :--- | :--- | :--- |
+| **Basic Necessity** | Drinking Coco | Inelastic demand; volume remains steady despite price changes. | 5% annual price growth; 3% volume decrease. |
+| **Luxury Good** | 99% Dark Chocolate | Highly elastic demand; consumers are very sensitive to price hikes. | 10% annual price growth; 12% volume decrease. |
+| **Neutral** | 70% Dark Chocolate | Moderate elasticity; follows standard inflation trends. | 7% annual price growth; 6% volume decrease. |
+
+#### 💻 Implementation Example (Generating 2023 Base):
+Below is the SQL logic used to "bootstrap" the 2023 data. I used string replacement for dates, applied a price multiplier, and adjusted volume using a `CAST` to integers to ensure realistic shipping units.
+```sql
+-- Iteratively generating 2023 data based on the 2022 foundation
+INSERT INTO Drinking_Coco_USA (Formatted_Date, Clean_Price, Country, "Boxes Shipped")
+SELECT
+    REPLACE(Formatted_Date, '2022', '2023'), -- Shifting the time horizon
+    Clean_Price * 1.05,                      -- Applying price growth coefficient
+    Country,
+    CAST("Boxes Shipped" * 0.97 AS INTEGER)  -- Adjusting volume based on elasticity
+FROM Drinking_Coco_USA
+WHERE Formatted_Date LIKE '%2022%';
+```
+---
+<small>*This logic served as the foundation for the 2023 dataset. The same iterative process was then applied sequentially for 2024 and 2025 (Year n+1 based on Year n).*</small>
