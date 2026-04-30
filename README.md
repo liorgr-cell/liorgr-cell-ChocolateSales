@@ -1,41 +1,34 @@
 # liorgr-cell-ChocolateSales
 Multi-year economic analysis of global chocolate sales (Kaggle) using SQL, R, and Excel. Focusing on price elasticity and TR optimization.
-# Global Confectionery Market Analysis: Economic Modeling & Data Engineering
- Consumer Behavior Analysis: WTP & Price Elasticity Modeling
+# 📊 US Chocolate Market Analysis: Price Elasticity of Demand
 
-## 👤 About the Author
-I am a **First-year Economics student at Ben-Gurion University of the Negev**. This project bridges the gap between theoretical microeconomic concepts and data-driven market analysis. I specialize in using technical tools to quantify consumer behavior, focusing on demand functions and market characterization.
+## 👤 About Me
+Hi, I'm Lior, a first-year Economics undergraduate student at Ben-Gurion University of the Negev. I am passionate about data analysis, applying economic theories to real-world datasets, and translating raw numbers into actionable business insights.
 
-## 🎯 Research Objective: Mapping the Consumer Mindset
-The primary goal of this project is to estimate **Willingness to Pay (WTP)** and analyze **Price Elasticity of Demand** across various product categories. 
+## 🎯 Project Objective
+The primary goal of this analysis was to take a broad dataset of global chocolate sales and extract meaningful data to understand the **Price Elasticity of Demand**. By doing so, I aimed to compare how consumers react to price changes across different types of chocolate relative to one another.
 
-Rather than focusing on corporate revenue trends, this study deep-dives into:
-* **Demand Sensitivity:** Quantifying how consumers react to price fluctuations in different market segments.
-* **Product Characterization:** Using elasticity coefficients to distinguish between **Luxury Goods** (High Elasticity) and **Necessity/Normal Goods** (Low Elasticity).
-* **WTP Thresholds:** Identifying the "Price Ceiling" where demand collapses for specific products.
+## 🌍 Scope and Focus
+While the initial dataset contained a massive variety of chocolates across multiple countries, I strategically narrowed the focus to ensure a precise and relevant analysis:
+* **Market:** United States (US) market only.
+* **Products:** Selected 5 distinct categories to highlight contrasting elasticities:
+  1. Drinking Coco
+  2. 85% Dark Chocolate
+  3. 99% Dark Chocolate
+  4. 70% Dark Chocolate
+  5. Peanut Butter Cubes
 
-## 🚀 Methodology: From Raw Data to Deep Simulation
-The foundational data for this study was sourced from **Kaggle** (`Chocolate_Sales.csv`). 
+## 🛠️ Data Processing & Methodology (SQL)
+1. **Extraction & Cleaning:** I extracted the data from the main database using SQL. A critical step was identifying extreme outliers in unit prices. I refined and cleaned the data to significantly reduce price variance, ensuring a reliable foundation for elasticity modeling.
+2. **Master Table Aggregation:** After cleaning and normalizing the individual product data, I merged all the processed datasets into a single, structured **Master Table** using `UNION ALL`. This streamlined the workflow for the visualization phase.
 
-**The Decision to Augment:**
-During the initial audit, it was determined that the raw data provided an insufficient snapshot for a deep-dive study on elasticity. To conduct a robust investigation, I **augmented the dataset** through a controlled SQL-based simulation. This allowed for:
-* **Longitudinal Analysis:** Creating a 4-year market progression (2022-2025).
-* **Price Variation:** Generating enough data points to observe WTP shifts under simulated inflationary conditions.
+## 📈 Visualization (R & ggplot2)
+Using R, I transitioned from the SQL Master Table to a clear visual representation of the demand curves. The graph is specifically designed to emphasize the differences in price elasticities between the products, visually distinguishing steep (inelastic) curves from shallow (elastic) ones.
 
-**You can view the raw dataset [here](./Chocolate_Sales.csv).**
+## 💡 Key Conclusions
+* **The "Normal Good" Behavior:** The analysis revealed a clear pattern: the more a product is perceived as a standard, "normal" daily good (e.g., Drinking Coco), the smaller the change in quantity demanded when prices increased. Consumers absorbed the price hikes with minimal drop in purchasing volume (Highly Inelastic).
+* **Price Sensitivity:** Conversely, more specific or premium chocolates showed higher sensitivity, where price increases led to sharper drops in demand.
 
-## 🔍 Data Audit & Technical Challenges
-Before modeling, the raw data required a rigorous cleaning pipeline to resolve the following hurdles:
-* **Currency Formatting:** Prices were stored as strings with currency symbols (e.g., `$12.50`), preventing mathematical processing.
-* **Date Inconsistency:** Reformatting `DD/MM/YYYY` to ISO standard (`YYYY-MM-DD`) to enable temporal logic and simulation.
-* **Type Casting:** Explicitly converting text objects into `REAL` and `INTEGER` types to ensure data integrity during high-precision calculations.
-
-## 🛠 Tech Stack
-* **SQL (SQLite):** Used for data engineering, cleaning, and creating the augmented research environment.
-* **R:** Employed for statistical computation of elasticity coefficients and visualization of demand curves.
-* **Microsoft Excel:** Utilized for cross-platform data validation and preliminary descriptive statistics.
-
-## 📁 Repository Structure
-* `/data`: Contains the raw `Chocolate_Sales.csv` and the augmented research data.
-* `/sql_scripts`: SQL logic for data transformation, WTP simulation, and elasticity calculations.
-* `/r_visuals`: (Work in Progress) R scripts for plotting demand curves and WTP distributions.
+## 🧠 Real-World Deviations & The Snob Effect
+While the visualization follows the fundamental Law of Demand, it's crucial as an economic analyst to acknowledge real-world behavioral deviations:
+* **The Snob Effect:** In certain premium categories (like 99% Dark Chocolate), pure rational elasticity might not always apply. Markets can experience the "Snob Effect" (or Veblen-good behavior), where a higher price might occasionally *increase* or sustain demand because the high cost signals prestige, exclusivity, and status to a specific consumer niche.
