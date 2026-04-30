@@ -39,19 +39,22 @@ The raw dataset for this project was initially sourced from **Kaggle**.
 📂 [Click here to view the dataset file used in this project](./Chocolate_Sales.csv)
 
 Below is a step-by-step breakdown of how the data was extracted, cleaned, and transformed for this economic analysis:
+
 ### Step 1: Isolating the US Market Data
 The original Kaggle dataset contained sales records from multiple countries worldwide. To ensure the price elasticity model isn't skewed by foreign exchange rates or differing cultural consumption habits, my very first step was to filter the "noise" and extract only the data relevant to the **United States**.
+
 ```sql
 -- Creating a dedicated working table strictly for the US market
 CREATE TABLE USA_Chocolate_Sales AS
 SELECT *
 FROM Global_Chocolate_Sales
-WHERE Country = 'USA';
+WHERE Country = 'USA'; 
+```
 
-### Step 2: Data Standardization & Feature Engineering
-Raw datasets often contain formatting that prevents immediate mathematical operations. Instead of overwriting the original raw data, I followed data integrity best practices by creating new, clean columns (`Clean_Price` and `Formatted_Date`).
+###Step 2: Data Standardization & Feature Engineering
+Raw datasets often contain formatting that prevents immediate mathematical operations. Instead of overwriting the original raw data, I followed data integrity best practices by creating new, clean columns.
 
-The original price column contained text characters (the `$` sign), preventing numeric calculations. I used SQL string manipulation to strip this symbol and convert it to a precise numeric format.
+The original price column contained text characters (the $ sign), preventing numeric calculations. I used SQL string manipulation to strip this symbol and convert it to a precise numeric format.
 ```sql
 -- Step 2a: Adding new columns to preserve the original raw data
 ALTER TABLE USA_Chocolate_Sales
@@ -66,11 +69,11 @@ SET
     
     -- Formatting the date to a standard SQL DATE structure
     Formatted_Date = CAST(Date AS DATE);
+```
+###Step 3: Product Isolation & Feature Selection (Representative Example)
+To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
 
-### Step 3: Product Isolation & Feature Selection (Representative Example)
-To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points. 
-
-Instead of pulling all available columns (`SELECT *`), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for **Drinking Coco**. This exact logic was replicated for the other four categories (85% Dark Bites, 99% Dark & Pure, 70% Dark Bites, and Peanut Butter Cubes)
+Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories.
 ```sql
 -- Isolating specific columns for 'Drinking Coco' into a dedicated working table
 CREATE TABLE USA_Drinking_Coco AS
@@ -81,4 +84,5 @@ SELECT
     "Boxes Shipped"
 FROM USA_Chocolate_Sales
 WHERE Product_Name = 'Drinking Coco';
-WHERE Product_Name = 'Drinking Coco';
+```
+
