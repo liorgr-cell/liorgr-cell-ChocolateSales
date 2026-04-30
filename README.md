@@ -87,7 +87,7 @@ SELECT
     Country,
     "Boxes Shipped"
 FROM USA_Chocolate_Sales
-WHERE Product_Name = 'Drinking Coco';
+WHERE Product = 'Drinking Coco';
 ```
 ### Step 4: Outlier Detection via Statistical Analysis
 Before removing any data, I performed a statistical review of each product's price range to identify anomalies. By calculating the **Minimum**, **Maximum**, and **Average** prices, I was able to spot extreme values that were economically unrealistic.
