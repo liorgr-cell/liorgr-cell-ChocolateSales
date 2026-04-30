@@ -117,9 +117,9 @@ I categorized the products to simulate realistic price and demand fluctuations o
 
 | Product Type | Example | Economic Assumption | Simulation Logic |
 | :--- | :--- | :--- | :--- |
-| **Basic Necessity** | Drinking Coco | Inelastic demand; volume remains steady despite price changes. | 5% annual price growth; 3% volume decrease. |
-| **Luxury Good** | 99% Dark Chocolate | Highly elastic demand; consumers are very sensitive to price hikes. | 10% annual price growth; 12% volume decrease. |
-| **Neutral** | 70% Dark Chocolate | Moderate elasticity; follows standard inflation trends. | 7% annual price growth; 6% volume decrease. |
+| **Basic Necessity** | Drinking Coco | Inelastic demand; volume remains steady despite price changes. | 10% annual price growth; 2% volume decrease. |
+| **Luxury Good** | 99% Dark Chocolate | Highly elastic demand; consumers are very sensitive to price hikes. | 5% annual price growth; 17% volume decrease. |
+| **Neutral** | 70% Dark Chocolate | Moderate elasticity; follows standard inflation trends. | 10% annual price growth; 20% volume decrease. |
 
 #### 💻 Implementation Example (Generating 2023 Base):
 Below is the SQL logic used to "bootstrap" the 2023 data. I used string replacement for dates, applied a price multiplier, and adjusted volume using a `CAST` to integers to ensure realistic shipping units.
