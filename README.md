@@ -24,7 +24,7 @@ While the initial dataset contained a massive variety of chocolates across multi
 [View the full SQL script here 💻](USA_Market.sql)
 
 ## 📈 Visualization (R & ggplot2)
-Using R, I transitioned from the SQL Master Table to a clear visual representation of the demand curves. The graph is specifically designed to emphasize the differences in price elasticities between the products, visually distinguishing steep (inelastic) curves from shallow (elastic) ones.
+Using R, I transitioned from the SQL Master Table to a clear visual representation of the demand curves. The graph is specifically designed to emphasize the differences in price elasticities between the products, visually distinguishing steep (inelastic) curves from shallow (elastic) ones. *[Click here to view the full R Analysis script 📈](USA_Market.R)*
 
 ## 💡 Key Conclusions
 * **The "Normal Good" Behavior:** The analysis revealed a clear pattern: the more a product is perceived as a standard, "normal" daily good (e.g., Drinking Coco), the smaller the change in quantity demanded when prices increased. Consumers absorbed the price hikes with minimal drop in purchasing volume (Highly Inelastic).
