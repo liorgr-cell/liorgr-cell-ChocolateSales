@@ -51,6 +51,15 @@ SELECT *
 FROM Chocolate_Sales
 WHERE Country = 'USA'; 
 ```
+**Step 1 Data Preview (Top 3 rows):**
+
+| Sales Person | Country | Product | Date | Amount | Clean Amount | Boxes Shipped | Price |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Barr Faughny | USA | Orange Choco | 10/03/2022 | $3,703 | 3703 | 11 | $336.64 |
+| Roddy Speechley | USA | Smooth Sliky Salty | 05/04/2022 | $3,017 | 3017 | 140 | $21.55 |
+| Gunar Cockshoot | USA | Spicy Special Slims | 17/02/2022 | $1,267 | 1267 | 157 | $8.07 |
+
+*[Click here to view the full Step 1 dataset (CSV) 📂](USA_Chocolate_Sales-Step1.csv)*
 
 ### Step 2: Data Standardization & Feature Engineering
 Raw datasets often contain formatting that prevents immediate mathematical operations. Instead of overwriting the original raw data, I followed data integrity best practices by creating new, clean columns.
