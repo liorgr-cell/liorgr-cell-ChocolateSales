@@ -132,3 +132,23 @@ WHERE Formatted_Date LIKE '%2022%';
 ```
 ---
 <small>*This logic served as the foundation for the 2023 dataset. The same iterative process was then applied sequentially for 2024 and 2025 (Year n+1 based on Year n).*</small>
+
+### Step 6: Dataset Consolidation (UNION ALL & Feature Injection)
+After cleaning, simulating, and expanding the data across 5 separate working tables, the final SQL step was to consolidate everything into a single master dataset. This is essential for exporting the data into **R** for statistical analysis and visualization.
+
+To ensure the statistical software could distinguish between the different items, I used a standard data engineering technique: **Dynamic Feature Injection**. During the `UNION ALL` operation, I hardcoded a new `Product` column into each `SELECT` statement, tagging every row with its respective category.
+```sql
+-- Consolidating all 5 tables into one final analytical dataset
+CREATE TABLE Final_Chocolate_Master AS
+SELECT *, 'Drinking Coco' AS Product FROM Drinking_Coco_USA
+UNION ALL
+SELECT *, '85% Dark Bites' AS Product FROM Chocolate_85_Percent_USA
+UNION ALL
+SELECT *, 'Peanut Butter Cubes' AS Product FROM Peanut_Butter_Cube_USA
+UNION ALL
+SELECT *, '99% Dark & Pure' AS Product FROM Chocolate_99_pure_USA
+UNION ALL
+SELECT *, '70% Dark Bites' AS Product FROM Chocolate_70_Percent_USA;
+```
+---
+<small>This step transformed the data into a "Tidy Data" (Long Format) structure, perfectly optimized for grouping and plotting in R using ggplot2.<small>
