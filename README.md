@@ -102,10 +102,10 @@ SELECT
 FROM USA_Drinking_Coco;
 
 -- Step 4b: Removing the identified outliers based on the analysis
--- (In this case, keeping prices between $2.00 and $45.00)
+-- (In this case, keeping prices between $17.00 and $40.00)
 DELETE FROM USA_Drinking_Coco
-WHERE Clean_Price > 45.00 
-   OR Clean_Price < 2.00;
+WHERE Clean_Price > 40.00 
+   OR Clean_Price < 17.00;
 ```
 ### Step 5: Longitudinal Data Expansion (Iterative Simulation)
 Since the original dataset only provided a baseline for 2022, I expanded the data to cover a 4-year period (2022–2025). This was an **iterative process**, where each year’s data served as the foundation for the next, allowing for a logical progression of market trends.
