@@ -83,6 +83,16 @@ SET
     SUBSTR("Date", 4, 2) || '-' || 
     SUBSTR("Date", 1, 2);
 ```
+**Step 2 Data Preview (Data Cleaning & Formatting):**
+
+| Sales Person | Country | Product | Date | Amount | Clean Amount | Boxes Shipped | Price | Clean_Price | Formatted_Date |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Barr Faughny | USA | Orange Choco | 10/03/2022 | $3,703 | 3703 | 11 | $336.64 | 336.64 | 2022-03-10 |
+| Roddy Speechley | USA | Smooth Sliky Salty | 05/04/2022 | $3,017 | 3017 | 140 | $21.55 | 21.55 | 2022-04-05 |
+| Gunar Cockshoot | USA | Spicy Special Slims | 17/02/2022 | $1,267 | 1267 | 157 | $8.07 | 8.07 | 2022-02-17 |
+
+*[Click here to view the full Step 2 dataset (CSV) 📂](USA_Chocolate_Sales-Step2.csv)*
+
 ### Step 3: Product Isolation & Feature Selection (Representative Example)
 To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
 
