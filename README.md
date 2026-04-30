@@ -206,6 +206,16 @@ SELECT *, '70% Dark Bites' AS Product FROM Chocolate_70_Percent_USA;
 ---
 <small>This step transformed the data into a "Tidy Data" (Long Format) structure, perfectly optimized for grouping and plotting in R using ggplot2.<small>
 
+**Step 6 Data Preview (Final Master Table):**
+
+| Formatted_Date | Clean_Price | Country | Boxes Shipped | Product |
+| :--- | :--- | :--- | :--- | :--- |
+| 07/02/2022 | 36.53 | USA | 142 | Drinking Coco |
+| 21/02/2022 | 19.37 | USA | 155 | Drinking Coco |
+| 07/02/2023 | 40.18 | USA | 139 | Drinking Coco |
+
+*[Click here to view the full Final Master dataset (CSV) 📂](Final_Chocolate_Master_USA-step%206.csv)*
+
 ## Phase 2: Demand Curve Analysis & Visualization (R)
 After preparing the consolidated dataset in SQL, I used R to perform the final economic analysis. The goal was to visualize the demand curves for all five chocolate products and compare their price elasticities over the 2022-2025 period.
 ```R
