@@ -39,3 +39,11 @@ The raw dataset for this project was initially sourced from **Kaggle**.
 📂 [Click here to view the dataset file used in this project](./Chocolate_Sales.csv)
 
 Below is a step-by-step breakdown of how the data was extracted, cleaned, and transformed for this economic analysis:
+### Step 1: Isolating the US Market Data
+The original Kaggle dataset contained sales records from multiple countries worldwide. To ensure the price elasticity model isn't skewed by foreign exchange rates or differing cultural consumption habits, my very first step was to filter the "noise" and extract only the data relevant to the **United States**.
+```sql
+-- Creating a dedicated working table strictly for the US market
+CREATE TABLE USA_Chocolate_Sales AS
+SELECT *
+FROM Global_Chocolate_Sales
+WHERE Country = 'USA';
