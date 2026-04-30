@@ -192,3 +192,5 @@ ggplot(chocolate_USA, aes(x = Boxes.Shipped, y = Clean_Price, color = Product)) 
 # Saving the final analysis as a high-resolution image for the report
 ggsave("Demand_Analysis_Graph.png", width = 12, height = 8, dpi = 300)
 ```
+### 📈 Demand Curve Visualization
+![Demand Curve Analysis: Price vs. Quantity](Demand_Analysis_Graph.png)
