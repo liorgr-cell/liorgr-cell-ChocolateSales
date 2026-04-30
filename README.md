@@ -153,3 +153,42 @@ SELECT *, '70% Dark Bites' AS Product FROM Chocolate_70_Percent_USA;
 ```
 ---
 <small>This step transformed the data into a "Tidy Data" (Long Format) structure, perfectly optimized for grouping and plotting in R using ggplot2.<small>
+
+## Phase 2: Demand Curve Analysis & Visualization (R)
+After preparing the consolidated dataset in SQL, I used R to perform the final economic analysis. The goal was to visualize the demand curves for all five chocolate products and compare their price elasticities over the 2022-2025 period.
+```R
+# Loading necessary libraries for analysis and visualization
+library(ggplot2)
+library(dplyr)
+
+# Importing the final consolidated CSV file
+chocolate_USA <- read.csv("Final_Chocolate_Master_USA.csv")
+
+# Creating the Demand Curve Visualization
+ggplot(chocolate_USA, aes(x = Boxes.Shipped, y = Clean_Price, color = Product)) +
+  # Adding data points (observations) with transparency
+  geom_point(alpha = 0.5, size = 2.5) +
+  
+  # Adding linear regression lines (Demand Curves) without confidence intervals
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1.2) +
+  
+  # Setting professional labels and titles
+  labs(
+    title = "Demand Curve Analysis: Price vs. Quantity",
+    subtitle = "Comparison of Chocolate Products Elasticity (2022-2025)",
+    x = "Quantity Demanded (Boxes)",
+    y = "Unit Price (USD)",
+    color = "Product Type"
+  ) +
+  
+  # Clean, minimal theme with customized title alignment and legend position
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    plot.subtitle = element_text(hjust = 0.5, size = 11),
+    legend.position = "bottom"
+  )
+
+# Saving the final analysis as a high-resolution image for the report
+ggsave("Demand_Analysis_Graph.png", width = 12, height = 8, dpi = 300)
+```
