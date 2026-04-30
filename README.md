@@ -1,5 +1,5 @@
 # liorgr-cell-ChocolateSales
-Multi-year economic analysis of global chocolate sales (Kaggle) using SQL, R, and Excel. Focusing on price elasticity and TR optimization.
+Multi-year economic analysis of US chocolate sales (Kaggle) using SQL, R, and Excel. Focusing on price elasticity.
 # 📊 US Chocolate Market Analysis: Price Elasticity of Demand
 
 ## 👤 About Me
