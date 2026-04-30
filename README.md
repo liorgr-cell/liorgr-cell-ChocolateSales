@@ -42,6 +42,7 @@ The raw dataset for this project was initially sourced from **Kaggle**.
 Below is a step-by-step breakdown of how the data was extracted, cleaned, and transformed for this economic analysis:
 
 ## Phase 1: Data Engineering & Simulation (SQL)
+[View the full SQL script here 💻](USA_Market.sql)
 ### Step 1: Isolating the US Market Data
 The original Kaggle dataset contained sales records from multiple countries worldwide. To ensure the price elasticity model isn't skewed by foreign exchange rates or differing cultural consumption habits, my very first step was to filter the "noise" and extract only the data relevant to the **United States**.
 
