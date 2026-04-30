@@ -108,6 +108,16 @@ SELECT
 FROM USA_Chocolate_Sales
 WHERE Product = 'Drinking Coco';
 ```
+**Step 3 Data Preview (Filtered Data Example - 85% Dark Bars):**
+
+| Formatted_Date | Clean_Price | Country | Boxes Shipped |
+| :--- | :--- | :--- | :--- |
+| 2022-04-05 | 108.67 | USA | 82 |
+| 2022-08-08 | 7.00 | USA | 54 |
+| 2022-05-11 | 24.37 | USA | 108 |
+
+*[Click here to explore all Step 3 data files in the folder 📂](Step%203/)*
+
 ### Step 4: Outlier Detection via Statistical Analysis
 Before removing any data, I performed a statistical review of each product's price range to identify anomalies. By calculating the **Minimum**, **Maximum**, and **Average** prices, I was able to spot extreme values that were economically unrealistic.
 
