@@ -136,6 +136,16 @@ DELETE FROM USA_Drinking_Coco
 WHERE Clean_Price > 40.00 
    OR Clean_Price < 17.00;
 ```
+**Step 4 Data Preview (Final Refinements - 85% Dark Bars):**
+
+| Formatted_Date | Clean_Price | Country | Boxes Shipped |
+| :--- | :--- | :--- | :--- |
+| 2022-08-08 | 7.00 | USA | 54 |
+| 2022-05-11 | 24.37 | USA | 108 |
+| 2022-08-23 | 37.14 | USA | 334 |
+
+*[Click here to explore all Step 4 data files in the folder 📂](Step%204/)*
+
 ### Step 5: Longitudinal Data Expansion (Iterative Simulation)
 Since the original dataset only provided a baseline for 2022, I expanded the data to cover a 4-year period (2022–2025). This was an **iterative process**, where each year’s data served as the foundation for the next, allowing for a logical progression of market trends.
 
