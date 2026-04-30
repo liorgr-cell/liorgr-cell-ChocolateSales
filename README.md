@@ -47,3 +47,22 @@ CREATE TABLE USA_Chocolate_Sales AS
 SELECT *
 FROM Global_Chocolate_Sales
 WHERE Country = 'USA';
+
+### Step 2: Data Standardization & Feature Engineering
+Raw datasets often contain formatting that prevents immediate mathematical operations. Instead of overwriting the original raw data, I followed data integrity best practices by creating new, clean columns (`Clean_Price` and `Formatted_Date`).
+
+The original price column contained text characters (the `$` sign), preventing numeric calculations. I used SQL string manipulation to strip this symbol and convert it to a precise numeric format.
+```sql
+-- Step 2a: Adding new columns to preserve the original raw data
+ALTER TABLE USA_Chocolate_Sales
+ADD Clean_Price DECIMAL(10,2),
+ADD Formatted_Date DATE;
+
+-- Step 2b: Populating the new columns with standardized data
+UPDATE USA_Chocolate_Sales
+SET 
+    -- Removing the '$' symbol and casting as a decimal
+    Clean_Price = CAST(REPLACE(Unit_Price, '$', '') AS DECIMAL(10,2)),
+    
+    -- Formatting the date to a standard SQL DATE structure
+    Formatted_Date = CAST(Date AS DATE);
