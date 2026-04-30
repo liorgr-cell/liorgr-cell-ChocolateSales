@@ -32,3 +32,10 @@ Using R, I transitioned from the SQL Master Table to a clear visual representati
 ## 🧠 Real-World Deviations & The Snob Effect
 While the visualization follows the fundamental Law of Demand, it's crucial as an economic analyst to acknowledge real-world behavioral deviations:
 * **The Snob Effect:** In certain premium categories (like 99% Dark Chocolate), pure rational elasticity might not always apply. Markets can experience the "Snob Effect" (or Veblen-good behavior), where a higher price might occasionally *increase* or sustain demand because the high cost signals prestige, exclusivity, and status to a specific consumer niche.
+
+## 🛠️ The Data Journey & Workflow
+
+The raw dataset for this project was initially sourced from **Kaggle**. 
+📂 [Click here to view the dataset file used in this project](./Chocolate_Sales.csv)
+
+Below is a step-by-step breakdown of how the data was extracted, cleaned, and transformed for this economic analysis:
