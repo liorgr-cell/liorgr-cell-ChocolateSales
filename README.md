@@ -73,7 +73,7 @@ SET
 ### Step 3: Product Isolation & Feature Selection (Representative Example)
 To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
 
-Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories.
+Instead of pulling all available columns (SELECT *), I optimized the extraction by selecting only the specific variables strictly necessary for the elasticity modeling: Date, Price, Country, and Quantity. Below is the SQL snippet for Drinking Coco. This exact logic was replicated for the other four categories ( 70% Dark Bites, 85% Dark Bites, 99% Dark & Pure, and Peanut Butter Cubes).
 ```sql
 -- Isolating specific columns for 'Drinking Coco' into a dedicated working table
 CREATE TABLE USA_Drinking_Coco AS
@@ -84,5 +84,23 @@ SELECT
     "Boxes Shipped"
 FROM USA_Chocolate_Sales
 WHERE Product_Name = 'Drinking Coco';
+```
+### Step 4: Outlier Detection via Statistical Analysis
+Before removing any data, I performed a statistical review of each product's price range to identify anomalies. By calculating the **Minimum**, **Maximum**, and **Average** prices, I was able to spot extreme values that were economically unrealistic.
+
+For instance, in the **Drinking Coco** category, I noticed prices that were either near zero or exceptionally high compared to the mean, suggesting data entry errors or non-standard sales.
+```sql
+-- Step 4a: Analyzing price distribution to identify outliers
+SELECT 
+    MIN(Clean_Price) AS Min_Price,
+    MAX(Clean_Price) AS Max_Price,
+    AVG(Clean_Price) AS Avg_Price
+FROM USA_Drinking_Coco;
+
+-- Step 4b: Removing the identified outliers based on the analysis
+-- (In this case, keeping prices between $2.00 and $45.00)
+DELETE FROM USA_Drinking_Coco
+WHERE Clean_Price > 45.00 
+   OR Clean_Price < 2.00;
 ```
 
