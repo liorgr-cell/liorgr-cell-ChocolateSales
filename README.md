@@ -194,3 +194,8 @@ ggsave("Demand_Analysis_Graph.png", width = 12, height = 8, dpi = 300)
 ```
 ### 📈 Demand Curve Visualization
 ![Demand Curve Analysis: Price vs. Quantity](Demand_Analysis_Graph.png)
+---
+## Conclusion & Business Impact
+This project successfully bridged the gap between raw datasets and actionable economic insights. By utilizing **SQL** for robust data preparation and simulation, and **R** for precise statistical visualization, the workflow demonstrates how technical data processes feed directly into product analytics.
+
+The final visualizations confirmed the theoretical elasticity of different chocolate categories. Understanding these dynamics—recognizing which products can sustain price hikes and which are highly sensitive—is crucial for making data-driven decisions regarding pricing strategies, market positioning, and revenue optimization.
