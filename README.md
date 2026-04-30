@@ -13,9 +13,9 @@ While the initial dataset contained a massive variety of chocolates across multi
 * **Market:** United States (US) market only.
 * **Products:** Selected 5 distinct categories to highlight contrasting elasticities:
   1. Drinking Coco
-  2. 85% Dark Chocolate
-  3. 99% Dark Chocolate
-  4. 70% Dark Chocolate
+  2. 70% Dark Bites
+  3. 85% Dark Bites
+  4. 99% Dark & Pure
   5. Peanut Butter Cubes
 
 ## 🛠️ Data Processing & Methodology (SQL)
@@ -59,17 +59,20 @@ The original price column contained text characters (the $ sign), preventing num
 ```sql
 -- Step 2a: Adding new columns to preserve the original raw data
 ALTER TABLE USA_Chocolate_Sales
-ADD Clean_Price DECIMAL(10,2),
+ADD Clean_Price REAL,
 ADD Formatted_Date DATE;
 
 -- Step 2b: Populating the new columns with standardized data
 UPDATE USA_Chocolate_Sales
 SET 
     -- Removing the '$' symbol and casting as a decimal
-    Clean_Price = CAST(REPLACE(Unit_Price, '$', '') AS DECIMAL(10,2)),
+    Clean_Price = CAST(REPLACE(Price, '$', '') AS REAL),
     
     -- Formatting the date to a standard SQL DATE structure
-    Formatted_Date = CAST(Date AS DATE);
+    "Formatted_Date" = 
+    SUBSTR("Date", 7, 4) || '-' || 
+    SUBSTR("Date", 4, 2) || '-' || 
+    SUBSTR("Date", 1, 2);
 ```
 ### Step 3: Product Isolation & Feature Selection (Representative Example)
 To accurately calculate price elasticity, I needed to analyze each product individually and focus only on the relevant data points.
