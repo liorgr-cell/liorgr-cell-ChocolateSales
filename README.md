@@ -47,7 +47,7 @@ The original Kaggle dataset contained sales records from multiple countries worl
 -- Creating a dedicated working table strictly for the US market
 CREATE TABLE USA_Chocolate_Sales AS
 SELECT *
-FROM Global_Chocolate_Sales
+FROM Chocolate_Sales
 WHERE Country = 'USA'; 
 ```
 
